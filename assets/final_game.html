@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Street View controls</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"> </script>
+    <script>
+
+var markers = [];
+var aaa = null;
+var cur = null;
+var lat = null;
+var lng = null;
+var head_angle = null;
+var pov_angle = null;
+var panorama = null;
+var map = null;   
+var spherical = google.maps.geometry.spherical;
+var flag = false;
+var pause_flag = false;
+var links = null;
+var init_place = null;
+var cur_place = null;
+var view_flag = false;
+var color_scope = null;
+var hint_flag = 1;
+
+function setPano2link() {
+  panorama.setPano(links[cur].pano);
+  panorama.setPov({heading:panorama.getPov().heading,pitch:0});
+  panorama.setVisible(true);
+}
+
+function initialize() {
+  // Note: constructed panorama objects have visible: true
+  // set by default.
+  lat_init = AndroidFunction.GetLat();
+  lng_init =AndroidFunction.GetLon();
+  init_place = new google.maps.LatLng(lat_init,lng_init);
+  var panoOptions = {
+    position: init_place,
+    addressControl: false,
+    linksControl: false,
+    panControl: false,
+    zoomControl: false,
+    enableCloseButton: false
+  };
+  panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('map-canvas'), panoOptions);
+  panorama.setVisible(true);
+  document.getElementById("scope button").style.color = 'green';
+  document.getElementById("pause button").style.color = 'green';
+  document.getElementById("map button").style.color = 'green';
+  google.maps.event.addListener(panorama, 'links_changed', function() {   
+   links = panorama.getLinks();
+    var nearest = 720;
+    for(var i in links) {
+      if(calc(i) < nearest) {
+        nearest = calc(i);
+        cur = i;
+      }
+    }  
+  });
+ google.maps.event.addListener(panorama, 'position_changed', function() {
+      lat = panorama.getPosition().lat();
+      lng = panorama.getPosition().lng();
+  });
+
+  google.maps.event.addListener(panorama, 'pov_changed', function() {
+      head_angle = panorama.getPov().heading;
+      pov_angle = panorama.getPov().pitch;
+  });
+
+}
+
+function calc(i) {
+  return Math.min(Math.abs(links[i].heading - head_angle), (Math.abs(360 - Math.abs(links[i].heading - head_angle)))); 
+}
+
+function handlesensor(y,p) {
+  if(flag === true) {
+    panorama.setPov({heading:y,pitch:p*(-1)});
+    panorama.setVisible(true);
+  }
+}
+
+
+function change_sensor_status() {
+  if(flag === true) {
+    document.getElementById("scope button").value="Compass On";
+    document.getElementById("scope button").style.color = 'green';
+    flag = false;
+  }else {   
+    document.getElementById("scope button").value="Compass Off";
+    document.getElementById("scope button").style.color = 'red';
+    flag = true;
+  }
+}
+function addMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+  markers.push(marker);
+}
+function show_map() {
+  if(view_flag == false) {
+    var center_place = new google.maps.LatLng(37.869085,-122.254775);
+    document.getElementById("map button").value="Back";
+    document.getElementById("map button").style.color = 'red';
+    document.getElementById("pause button").disabled = "disabled";
+    document.getElementById("scope button").disabled = "disabled";
+    color_scope = document.getElementById("scope button").style.color;
+    document.getElementById("scope button").style.color = 'white';
+    document.getElementById("pause button").style.color = 'white';
+    view_flag = true;
+    panorama.setVisible(false);
+    cur_place = new google.maps.LatLng(lat,lng);
+    var mapOptions1 = {
+      center: center_place,
+      zoom: 2,
+      streetViewControl: false,
+      addressControl: false,
+      linksControl: false,
+      panControl: false,
+      zoomControl: false,
+      enableCloseButton: false
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions1);
+    google.maps.event.addListener(map, 'click', function(event) {
+      if(hint_flag == 1){
+        aaa = event.latLng;
+        addMarker(event.latLng);
+        if(Math.floor(spherical.computeDistanceBetween(aaa, cur_place)) > 30) {
+         var dis = spherical.computeDistanceBetween(aaa, cur_place);
+         alert('The distant is ' + Math.floor(dis/1609.344) + ' miles.');
+       }
+        else {
+          alert('Awesome, correct answer!')
+       }   
+       hint_flag = 0;
+      }
+      else {
+        alert('No More Hint Now!');
+      }
+    });
+  }
+  else {
+    document.getElementById("map button").value="Hint";
+    document.getElementById("map button").style.color = 'green';
+    document.getElementById("pause button").disabled = "";
+    document.getElementById("scope button").disabled = "";
+    document.getElementById("scope button").style.color = color_scope;
+    document.getElementById("pause button").style.color = 'green';
+    view_flag = false;
+    var panoOptions = {
+      position: cur_place,
+      addressControl: false,
+      linksControl: false,
+      panControl: false,
+      zoomControl: false,
+      enableCloseButton: false,
+    };
+    panorama = new google.maps.StreetViewPanorama(
+    document.getElementById('map-canvas'), panoOptions);
+    panorama.setPov({heading: head_angle, pitch:0});
+    panorama.setVisible(true);
+    google.maps.event.addListener(panorama, 'links_changed', function() {   
+      links = panorama.getLinks();
+      var nearest = 720;
+      for(var i in links) {
+        if(calc(i) < nearest) {
+          nearest = calc(i);
+          cur = i;
+        }
+      }  
+    });
+    google.maps.event.addListener(panorama, 'position_changed', function() {
+      lat = panorama.getPosition().lat();
+      lng = panorama.getPosition().lng();
+    });
+    google.maps.event.addListener(panorama, 'pov_changed', function() {
+      head_angle = panorama.getPov().heading;
+      pov_angle = panorama.getPov().pitch;
+    });
+  }
+}
+
+function pause() {
+  AndroidFunction.pause_game();
+}
+
+function game_hint() {
+  hint_flag = AndroidFunction.get_hint_number();
+  if(hint_flag == 1){
+    AndroidFunction.game_hint();
+    hint_flag = 0;
+  }
+  else {
+    alert('No More Hint Now!');
+  }
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+  </head>
+  <body onload="initialize()">
+    <div id="map-canvas" style="width: 100%; height: 90%"></div>
+    <input type="button" onclick="change_sensor_status()" value="Turn Compass On" id="scope button" style="width: 32%; height: 10%;" />
+    <input type="button" onclick="game_hint()" value="Hint" id="map button" style="width: 32%; height: 10%;" />
+    <input type="button" onclick="pause()" value="Pause" id="pause button" style="width: 32%; height: 10%;" />
+  </body>
+</html>

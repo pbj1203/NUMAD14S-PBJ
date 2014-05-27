@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="Trickiest_Part">Trickiest Part</string>
+	<string name="Final_Project">Final Project</string>
+    <string name="hello">Hello, this is my introduction</string>
+    <string name="app_name">NUMAD14S-BojunPan</string>
+    <string name="About">About</string>
+    <string name="main_title">NUMAD14S-BojunPan</string>
+    <string name="main_title_bar">BojunPan</string>
+    <string name="error_label">Generate Error</string>
+    <string name="game_label">Sudoku</string>
+    <string name="communication">Communication</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="quit_label">Quit</string>
+    <string name="clear_label">Clear</string>
+    <string name="Reture_To_Menu">Return To Menu</string>
+    <string name="acknowledge">Acknowledge</string>
+    <string name="acknowledge_thanks"> Thanks for your help..</string>
+    <string name="about_name">Author: BojunPan</string>
+    <string name="about_email">Email: pan.bo@husky.neu.edu</string>
+    <string name="about_degree">1st year MS in</string>
+    <string name="about_program">Telecommunication System Management</string>
+    <string name="about_title">About Apps</string>
+    <string name="dictionary_title">Test Dictionary</string>
+    <string name="Letris">Word Game</string>
+    <string name="ranklist">Ranklist</string>
+    <string name="game_name">Sudoku</string>
+    <string name="main_game_title">Android Sudoku</string>
+    <string name="continue_label">Continue</string>
+    <string name="new_game_label">New Game</string>
+    <string name="registor">register</string>
+    <string name="unregistor">unregister</string>
+    <string name="about_label">About</string>
+    <string name="exit_label">Exit</string>
+    <string name="settings_label">Settings...</string>
+    <string name="send_label">send</string>
+    <string name="settings_title">Sudoku settings</string>
+    <string name="settings_shortcut">s</string>
+    <string name="music_title">Music</string>
+    <string name="music_summary">Play background music</string>
+    <string name="hints_title">Hints</string>
+    <string name="hints_summary">Show hints during play</string>
+    <string name="new_game_title">Difficulty</string>
+    <string name="easy_label">Easy</string>
+    <string name="medium_label">Medium</string>
+    <string name="hard_label">Hard</string>
+    <string name="game_title">Game</string>
+    <string name="no_moves_label">No moves</string>
+    <string name="game_results">Game Results</string>
+    <string name="next_level">Next Level</string>
+    <string name="keypad_title">Keypad</string>
+    <string name="twoplayergame">Two Player Game</string>
+    <string name="about_game">About Android Sudoku</string>
+    <string name="Username">Username</string>
+    <string name="Game_Mode">Game_Mode</string>
+    <string name="instruction">Instruction</string>
+    <string name="Login">Login</string>
+    <string name="about_text">\
+Sudoku is a logic-based number placement puzzle.
+Starting with a partially completed 9x9 grid, the
+objective is to fill the grid so that each
+row, each column, and each of the 3x3 boxes
+(also called <i>blocks</i>) contains the digits
+1 to 9 exactly once.</string>
+    <string name="acknowledge_dictionary_text"> \
+In the dictionary part, I did many attempts. Based on
+the properity of prefix, I tried the trie tree structure
+but failed. The grader gave me a suggestion that I could
+try to use Bloom Filter. I tried to finish it referring wikipedia 
+(http://en.wikipedia.org/wiki/Bloom_filter) and a blog
+(http://blog.csdn.net/acceptedxukai/article/details/7031899). Referring
+(http://developer.android.com/guide/topics/fundamentals/processes-and-threads.html)
+I learnt to use AsyncTask to read files in the background. Referring 
+(http://www.eoeandroid.com/thread-63094-1-1.html), I learnt to 
+read/write zip files.</string>
+    <string name="about_letris_text"> \
+Letris, a word puzzle game, which claims to be the offspring of 
+Tetris and Scrabble. The game is simple to play; letter blocks fall
+onto the screen, and you make words to eliminate them. You need to 
+eliminate all the letters before they pile up and reach the top of
+the screen, a la Tetris.</string>
+    <string name="acknowledge_letris_text"> \
+In the word game, I use Dolly Song as my backgrond music, 
+the source is from http://s.music.so.com/s/playerproxy?id=787270.
+At the last 5 seconds count down, I use special sounds effects from
+http://www.flash1890.com to enhance the game atmosphere. </string>
+    <string name="letris_instruction">\
+The game is really easy. The game has unlimited levels, and in
+each level, you will get a target scores. What you need to do
+is to eliminate grids and get scores. There are three difficult
+levels, difference from drop speed, count down time and the
+probability of vowels and consomants. In the settings, you
+can choose the size of the rows and columns of the grid and
+control switch of the background music. In the game, what you
+need to do is just choose some characters and try to make up 
+words. When it forms a word, the beep voice touch off and at 
+the lower left corner, you could get a green status and if you
+touch it, the choosed grid could be eliminated. After each level,
+you will get a result and show the words you eliminated.</string>
+    <string name="acknowledge_communication_text"> \
+In the communication part. I use GCM server and let the mobile as
+the third party server to post HTTP requests. And broadcast the 
+requset. I use backup server to send the payload and get the payload
+when there exists a request. </string>
+    <string name="acknowledge_twoplayer_game"> \
+In the two player game part. I use GCM server and let the mobile as
+the third party server to post HTTP requests. And use backup server 
+to send the payload and get the payload. There are two modes for the
+game, one is syn and another is asyn. I use shaking function from
+WeChat for build connections. The picture and music I use are from
+the website resources http://bbs.weiphone.com/read-htm-tid-5854527.html.
+</string>
+<string name="Final_Description_1"> \
+<b> </b><b> </b><b> </b><b> </b>This is an app allow you to travel to any places on earth and guess where you are using your phone. When starting travelling, you would see random real scenery on your phone and you can shake your phone to move forward in the street. You would feel like you are really walking there.\n\n
+<b> </b><b> </b><b> </b><b> </b>After you travel a period of time, you may have found some clues to answer the question \"Where am I\". You can guess and then a new place would appear.\n\n
+<b> </b><b> </b><b> </b><b> </b>Now let\'s start the adventure.\n
+</string>
+<string name="Final_Description_2"> \
+Features:\n\n
+-- Beautiful scenery\n
+-- Exercise at the same time\n
+-- Mysterious place lead to surprise\n
+-- different game difficulty suits different people\n\n
+Team Information:\n\n
+Rui Wen - wen.r@husky.neu.edu\n
+Bojun Pan - pan.bo@husky.neu.edu
+</string>
+</resources>

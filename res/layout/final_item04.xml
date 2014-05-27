@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/final_main_background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:clickable="false"
+        android:gravity="center_horizontal"
+        android:shadowColor="#B0000000"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="Start Game Now"
+        android:textColor="@color/blue"
+        android:textSize="35dip" />
+
+    <Button
+        android:id="@+id/final_tutorial_start"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dip"
+        android:layout_marginLeft="60dip"
+        android:layout_marginRight="60dip"
+        android:layout_marginTop="50dip"
+        android:background="@drawable/btn_red"
+        android:onClick="start_click"
+        android:text="Start" />
+
+    <Button
+        android:id="@+id/final_tutorial_main_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dip"
+        android:layout_marginLeft="60dip"
+        android:layout_marginRight="60dip"
+        android:layout_marginTop="30dip"
+        android:background="@drawable/btn_purple"
+        android:onClick="mainmenu_click"
+        android:text="Main menu" />
+
+</LinearLayout>

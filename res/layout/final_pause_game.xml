@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="#00000000">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:clickable="false"
+        android:gravity="center_horizontal"
+        android:shadowColor="#B0000000"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="Game Pause"
+        android:textColor="@color/red"
+        android:textSize="35dip" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.86" >
+
+        <Button
+            android:id="@+id/final_pause_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/final_pause_resume"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:background="#00000000"
+            android:drawableTop="@drawable/final_main_quit"
+            android:text="Return to menu"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/final_pause_resume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="62dp"
+            android:layout_toLeftOf="@+id/final_pause_return"
+            android:background="#00000000"
+            android:drawableTop="@drawable/final_end_start"
+            android:text="Resume"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/final_pause_restart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/final_pause_return"
+            android:layout_toRightOf="@+id/final_pause_return"
+            android:background="#00000000"
+            android:drawableTop="@drawable/final_end_backtomenu"
+            android:text="Restart"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/final_pause_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/final_pause_restart"
+            android:layout_marginBottom="14dp"
+            android:background="#00000000"
+            android:src="@drawable/final_main_music_on" />
+
+    </RelativeLayout>
+
+</LinearLayout>

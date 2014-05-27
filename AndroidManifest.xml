@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.neu.madcourse.bojunpan"
+    android:versionCode="32"
+    android:versionName="7.2" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="7" />
+
+    <!-- <uses-permission android:name="android.permission.INJECT_EVENTS" /> -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.hardware.sensor.accelerometer" />
+
+    <permission
+        android:name="edu.neu.madcourse.bojunpan.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="edu.neu.madcourse.bojunpan.permission.C2D_MESSAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.MainActivity"
+            android:label="@string/main_title_bar" >
+            <intent-filter android:label="@string/app_name" >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.About_Main"
+            android:label="@string/about_title"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.dictionary.Dictionary"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/dictionary_title" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.dictionary.Acknowledge"
+            android:label="@string/acknowledge"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.sudoku.Sudoku"
+            android:label="@string/game_label" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.sudoku.About"
+            android:label="@string/about_title"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.sudoku.Prefs"
+            android:label="@string/settings_title" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.sudoku.Game"
+            android:label="@string/game_title" />
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.wordgame.WordGame"
+            android:label="@string/Letris" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.wordgame.WordGame_Instruction"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="Instruction"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.wordgame.WordGame_Acknowledge"
+            android:label="@string/acknowledge"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.wordgame.WordGame_About"
+            android:label="@string/about_title"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.wordgame.WordGame_Prefs"
+            android:label="@string/settings_title" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.wordgame.WordGame_Game"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/game_title"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.communication.Communication_Main"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/communication"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.communication.Communication_Acknowledge"
+            android:label="@string/acknowledge"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+
+        <receiver
+            android:name="edu.neu.madcourse.bojunpan.communication.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="edu.neu.madcourse.bojunpan.communication" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="edu.neu.madcourse.bojunpan.communication.GcmIntentService" />
+
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.twoplayergame.TwoPlayerGame_Main"
+            android:label="@string/twoplayergame" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.twoplayergame.TwoPlayerGame_Acknowledge"
+            android:label="@string/acknowledge"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.twoplayergame.TwoPlayerGame_Shaking"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="Shaking"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.twoplayergame.TwoPlayerGame_CountdownTimer"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="CountDown"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.twoplayergame.TwoPlayerGame_SynGame"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="TwoPlayerSynGame"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.twoplayergame.TwoPlayerGame_AsynGame"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="TwoPlayerAsynGame"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.trickiestpart.Trickiest_Part_Main"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Trickiest_Part"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Start_Screen"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="Play Store description"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Tutorial"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="MAD14S-Shaking the World"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Main"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_NewGame"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Choose_List"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_GameResults"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_GameMode"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_GamePause"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_About"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="Acknowledgements"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Achievement"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Start"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Shaking_Result"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Compass_Result"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Choice_Result"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Shaking"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Compass"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Choice"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Start_Slogan"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_NewPlace"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_PictureTutorial"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Conclusion"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Hint"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Hint_Results"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Achievement"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Task_Achievement_Instruction"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/Final_Project"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Seperate_Icon"
+            android:configChanges="orientation|keyboardHidden"
+            android:icon="@drawable/ic_project"
+            android:label="MAD14S-Shaking the World"
+            android:screenOrientation="portrait"
+            android:taskAffinity="edu.neu.madcourse.bojunpan.finalproject.Final_Project_Seperate_Icon" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

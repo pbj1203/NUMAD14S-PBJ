@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+   xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="music"
+        android:summary="@string/music_summary"
+        android:title="@string/music_title" />
+
+    <ListPreference
+        android:entries="@array/entries_row"
+        android:entryValues="@array/entriesvalue_row"
+        android:key="row"
+        android:summary="choose a row size in the game"
+        android:title="row" />
+
+        <ListPreference
+        android:entries="@array/entries_column"
+        android:entryValues="@array/entriesvalue_column"
+        android:key="column"
+        android:summary="choose a column size in the game"
+        android:title="column" />
+    
+</PreferenceScreen>

@@ -1,0 +1,36 @@
+Amherst
+Barnstable
+Boston
+Brockton
+Chicopee
+Falmouth
+Fitchburg
+Framingham
+Gardner
+Gloucester
+Greenfield
+Haverhill
+Hyannis
+Lawrence
+Leominster
+Lexington
+Lowell
+Lynn
+Middleborough
+New Bedford
+Newburyport
+Newton
+North Adams
+Northampton
+Pittsfield
+Plymouth
+Quincy
+Sandwich
+Southbridge
+Springfield
+Taunton
+Vineyard Haven
+Webster
+Westfield
+Woburn
+Worcester

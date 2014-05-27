@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Street View controls</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"> </script>
+    <script>
+var cur = null;
+var lat2 = null;
+var aaa = null;
+var lat = null;
+var lng = null;
+var markers = [];
+var lng2 = null;
+var dis = 1;
+var R_earth = 6371.004;
+var head_angle = null;
+var pov_angle = null;
+var panorama = null;
+var flag = false;
+var service = new google.maps.StreetViewService();
+var spherical = google.maps.geometry.spherical;
+var links = null;
+var init_place = null;
+var map = null;
+var cur_place = null;
+function setPano2link() {
+  panorama.setPano(links[cur].pano);
+  panorama.setPov({heading:panorama.getPov().heading,pitch:0});
+  panorama.setVisible(true);
+}
+
+function return_to_street_view() {
+  initialize();
+}
+
+function initialize() {
+  // Note: constructed panorama objects have visible: true
+  // set by default.
+  init_place = new google.maps.LatLng(37.869085,-122.254775);
+  var panoOptions = {
+    position: init_place,
+    addressControl: false,
+    linksControl: false,
+    panControl: false,
+    zoomControl: false,
+    enableCloseButton: false
+  };
+  panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('map-canvas'), panoOptions);
+  google.maps.event.addListener(panorama, 'links_changed', function() {  
+    links = panorama.getLinks();
+    var nearest = 720;
+    for(var i in links) {
+      if(calc(i) < nearest) {
+        nearest = calc(i);
+        cur = i;
+      }
+    }  
+  });
+ google.maps.event.addListener(panorama, 'position_changed', function() {
+      lat = panorama.getPosition().lat();
+      lng = panorama.getPosition().lng();
+  });
+
+  google.maps.event.addListener(panorama, 'pov_changed', function() {
+      head_angle = panorama.getPov().heading;
+      pov_angle = panorama.getPov().pitch;
+  });
+
+}
+
+function calc(i) {
+  /*
+  head_angle = ((head_angle+180)%360)/180.0 * Math.PI;
+  lat2 = Math.asin(Math.sin(lat)*Math.cos(dis/R_earth) + 
+              Math.cos(lat)*Math.sin(dis/R_earth)*Math.cos(head_angle));
+  lng2 = lng + Math.atan2(Math.sin(head_angle)*Math.sin(dis/R_earth)*Math.cos(lat), 
+                     Math.cos(dis/R_earth)-Math.sin(lat)*Math.sin(lat2));
+  return ((lat2-lat) * (lat2 - lat) + (lng2 - lng) * (lng2 - lng));
+  lat2 = spherical.computeOffset(panorama.getPosition(), dis, panorama.getPov().heading).lat();
+  lng2 = spherical.computeOffset(panorama.getPosition(), dis, panorama.getPov().heading).lng();
+  return ((lat2-lat) * (lat2 - lat) + (lng2 - lng) * (lng2 - lng)); */
+  return Math.min(Math.abs(links[i].heading - head_angle), (Math.abs(360 - Math.abs(links[i].heading - head_angle)))); 
+}
+
+function handlesensor(y,p) {
+  if(flag === true) {
+    panorama.setPov({heading:y,pitch:p * (-1)});
+    panorama.setVisible(true);
+  }
+}
+
+function addMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+  markers.push(marker);
+}
+
+function change_sensor_status() {
+  if(flag === true) {
+    flag = false;
+  }else {
+    flag = true;
+  }
+}
+function show_map() {
+  panorama.setVisible(false);
+  cur_place = new google.maps.LatLng(lat,lng);
+   var mapOptions1 = {
+    center: cur_place,
+    zoom: 3,
+    streetViewControl: false
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions1);
+  google.maps.event.addListener(map, 'click', function(event) {
+      aaa = event.latLng;
+      addMarker(event.latLng);
+      if(Math.floor(spherical.computeDistanceBetween(aaa, panorama.getPosition())) > 30) {
+        alert('The distant is ' + Math.floor(spherical.computeDistanceBetween(aaa, panorama.getPosition())) + ' meters.');
+      }
+      else {
+        alert('Awesome, correct answer!')
+      }
+      
+  });
+}
+function clearMarkers() {
+  setAllMap(null);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas" style="width: 100%; height: 80%"></div>
+    <input type="button" onclick="setPano2link()" value="next" />
+    <input type="button" onclick="change_sensor_status()" value="gyroscope" />
+    <input type="button" onclick="show_map()" value="Guess" />
+    <input type="button" onclick="return_to_street_view()" value="return Streetview" />
+  </body>
+</html>

@@ -1,0 +1,39 @@
+
+<LinearLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:background="@color/background"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:padding="30dip"
+   android:orientation="horizontal">
+   <LinearLayout
+   		android:orientation="vertical"
+   		android:layout_height="wrap_content"
+   		android:layout_width="fill_parent"
+   		android:layout_gravity="center">
+
+ <TextView
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginBottom="25dip"
+     android:gravity="center_horizontal"
+     android:text="You have learnt how to play the game. \nThe achievements on main screen would show you all the places you've ever been to."
+     android:textSize="22sp" />
+ <ImageView 
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_gravity="center"
+     android:background="@drawable/final_main_achievements"/>
+   
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:background="@drawable/btn_green"
+      android:text="See it"
+      android:onClick="buttonclick" 
+      android:layout_marginTop="15dp"
+      android:textColor="#6a3ab2"/>
+      </LinearLayout>
+</LinearLayout>
+

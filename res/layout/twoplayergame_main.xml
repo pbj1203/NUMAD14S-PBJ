@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dip" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:text="@string/Username" />
+
+    <EditText
+        android:id="@+id/Twoplayergame_Username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="input your username here..."
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:textColorHint="#238745"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/Twoplayergame_Game_Mode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:text="@string/Game_Mode" />
+
+    <Spinner
+        android:id="@+id/Asyn_or_Syn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/Twoplayergame_Login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Login" />
+
+    <Button
+        android:id="@+id/Twoplayergame_Instruction"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/instruction" />
+
+    <Button
+        android:id="@+id/Twoplayergame_Acknowledge"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/acknowledge" />
+
+    <Button
+        android:id="@+id/Twoplayergame_Quit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quit_label" />
+
+</LinearLayout>

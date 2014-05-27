@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/final_main_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:clickable="false"
+            android:gravity="center_horizontal"
+            android:paddingTop="24dip"
+            android:shadowColor="#B0000000"
+            android:shadowDx="5.0"
+            android:shadowDy="5.0"
+            android:shadowRadius="10.0"
+            android:text="Shaking the World"
+            android:textColor="#7FFF00"
+            android:textSize="38dip" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.86" >
+
+        <ImageButton
+            android:id="@+id/final_project_main_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/final_project_main_quit"
+            android:layout_marginBottom="19dp"
+            android:background="#00000000"
+            android:src="@drawable/final_main_about" />
+
+        <ImageButton
+            android:id="@+id/final_project_main_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/final_project_main_about"
+            android:layout_marginRight="26dp"
+            android:background="#00000000"
+            android:layout_toLeftOf="@+id/final_project_main_about"
+            android:src="@drawable/final_main_music_on" />
+
+        <Button
+            android:id="@+id/final_project_main_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="#00000000"
+            android:drawableTop="@drawable/final_main_start"
+            android:text="Play"
+            android:textColor="#FFFF22"
+            android:textSize="16dip" />
+
+        <Button
+            android:id="@+id/final_project_main_tutorial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/final_project_main_achievement"
+            android:layout_alignBottom="@+id/final_project_main_achievement"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/final_project_main_achievement"
+            android:background="#00000000"
+            android:drawableTop="@drawable/final_main_tutorial"
+            android:text="Tutorial"
+            android:textColor="#FFFF22"
+            android:textSize="16dip" />
+
+        <Button
+            android:id="@+id/final_project_main_achievement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:background="#00000000"
+            android:drawableTop="@drawable/final_main_achievements"
+            android:text="Achievements"
+            android:textColor="#FFFF22"
+            android:textSize="16dip" />
+
+        <Button
+            android:id="@+id/final_project_main_quit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/final_project_main_achievement"
+            android:layout_alignBottom="@+id/final_project_main_achievement"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/final_project_main_achievement"
+            android:background="#00000000"
+            android:drawableTop="@drawable/final_main_quit"
+            android:text="Quit"
+            android:textColor="#FFFF22"
+            android:textSize="16dip" />
+
+    </RelativeLayout>
+
+</LinearLayout>

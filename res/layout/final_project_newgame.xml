@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <WebView
+        android:id="@+id/final_project_newgame"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <TextView
+        android:id="@+id/marquee_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:duplicateParentState="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textSize="22dip"
+        android:textStyle="bold"
+        android:text="
+Tips: You need guess two places right to win, allocate your time and strategy to guess them right.                                                                                              
+Tips: Challenge yourself, try to guess it quicker!                                                                                              
+Tips: You can walk around to find clues to figure out where you are.                                                                                                          
+Tips: Look at the people, buildings and street names carefully.                                                                                         
+Tips: Remember to Use hint when necessary.                                                                                   
+Tips: Shake your hands, and you will move forward. 
+Tips: You can turn the compass on to control the direction more freely.                                                                                              
+Tips: Shake around, you would find many surprizes.                                                                                              
+Tips: Famous buildings are the best clues to locate yourself.                                                                                              
+Tips: You can pause the game and come back later, your game time would not change when paused, challenge your record.                                                                                              
+Tips: Want to change some settings? Pause the game.                                                                                                                                                                                                                                                                                    
+Tips: When you know where you are, you can turn over your phone three times to get the guess list.                                                                                                                     "
+        android:textColor="#b266b2" />
+
+</FrameLayout>

@@ -1,0 +1,35 @@
+
+<LinearLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:background="@color/background"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:padding="30dip"
+   android:orientation="horizontal">
+   <LinearLayout
+   		android:orientation="vertical"
+   		android:layout_height="wrap_content"
+   		android:layout_width="fill_parent"
+   		android:layout_gravity="center">
+
+ <TextView
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_gravity="center"
+     android:layout_marginBottom="25dip"
+     android:gravity="center_horizontal"
+     android:text="You have known the basic of this game, now a new player training with three tasks would teach you how to play."
+     android:textSize="22sp" />
+   
+   <Button
+      android:id="@+id/final_project_task_start_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:background="@drawable/btn_green"
+      android:text="Start"
+      android:onClick="buttonclick" 
+      android:textColor="#6a3ab2"/>
+      </LinearLayout>
+</LinearLayout>
+

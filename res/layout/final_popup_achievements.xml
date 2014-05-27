@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#000000" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:text="You have just been to France, so it is shown in the map.\nClick on the map to continue." 
+        android:textSize="22sp"
+        android:textColor="#ffffffff"
+        android:layout_centerInParent="true"
+        android:gravity="center"/>
+
+</RelativeLayout>

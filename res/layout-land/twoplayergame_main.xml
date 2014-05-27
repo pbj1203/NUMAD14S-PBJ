@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dip" >
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <TextView
+                android:text="@string/Username"
+                android:textSize="8pt" />
+
+            <EditText
+                android:id="@+id/Twoplayergame_Username"
+                android:hint="input your username here..."
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:textColorHint="#238745"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:text="@string/Game_Mode"
+                android:textSize="8pt" />
+
+            <Spinner android:id="@+id/Asyn_or_Syn" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/Twoplayergame_Login"
+                android:text="@string/Login" />
+
+            <Button
+                android:id="@+id/Twoplayergame_Instruction"
+                android:text="@string/instruction" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/Twoplayergame_Acknowledge"
+                android:text="@string/acknowledge" />
+
+            <Button
+                android:id="@+id/Twoplayergame_Quit"
+                android:text="@string/quit_label" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
